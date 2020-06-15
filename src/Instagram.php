@@ -553,7 +553,8 @@ class Instagram
             'client_id' => $this->getApiKey(),
             'client_secret' => $this->getApiSecret(),
             'redirect_uri' => $this->getApiCallback(),
-            'code' => $code
+//            'code' => $code
+            'response_type' => 'token'
         );
 
         $result = $this->_makeOAuthCall($apiData);
