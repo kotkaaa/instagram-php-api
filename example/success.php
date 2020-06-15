@@ -26,12 +26,15 @@ if (isset($code)) {
     // store user access token
     $instagram->setAccessToken($data);
     // now you have access to all authenticated user methods
-    $result = $instagram->getMediaComments('CBV_B9kHhvX');
-} else {
-    // check whether an error occurred
-    if (isset($_GET['error'])) {
-        echo 'An error occurred: ' . $_GET['error_description'];
+    try {
+        $result = $instagram->getMediaComments('CBV_B9kHhvX');
+    } catch (\Exception $exception) {
+        exit($exception->getMessage());
     }
+
+} elseif (isset($_GET['error'])) {
+    // check whether an error occurred
+    throw new  \Exception('An error occurred: ' . $_GET['error_description']);
 }
 
 ?>
@@ -49,11 +52,10 @@ if (isset($code)) {
 <div class="container">
     <header class="clearfix">
         <img src="assets/instagram.png" alt="Instagram logo">
-        <h1>Instagram photos <span>taken by <?php echo $data->user->username ?></span></h1>
     </header>
     <div class="main">
         <pre>
-            <?php print_r($result->data) ?>
+            <?php print_r($result) ?>
         </pre>
     </div>
 </div>
