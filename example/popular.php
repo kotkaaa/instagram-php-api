@@ -1,10 +1,11 @@
 <?php
 
 require '../src/Instagram.php';
+require 'config.php';
 
 use MetzWeb\Instagram\Instagram;
 
-$instagram = new Instagram('YOUR_APP_KEY');
+$instagram = new Instagram($config['apiKey']);
 
 $result = $instagram->getPopularMedia();
 

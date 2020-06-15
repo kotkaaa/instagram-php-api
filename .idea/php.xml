@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="PhpProjectServersManager">
+    <servers>
+      <server host="instagram.api" id="c091518f-85ef-417d-830b-8b648ffda411" name="InstaAPI" />
+    </servers>
+  </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="5.3.0" />
 </project>
