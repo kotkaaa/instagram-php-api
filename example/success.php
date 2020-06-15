@@ -16,15 +16,12 @@ use MetzWeb\Instagram\Instagram;
 $instagram = new Instagram($config);
 
 // receive OAuth code parameter
-$code = $_GET['code'];
+$code = $_GET['access_token'];
 
 // check whether the user has granted access
 if (isset($code)) {
-    // receive OAuth token object
-    $data = $instagram->getOAuthToken($code);
-    $username = $data->user->username;
     // store user access token
-    $instagram->setAccessToken($data);
+    $instagram->setAccessToken($code);
     // now you have access to all authenticated user methods
     try {
         $result = $instagram->getMediaComments('CBV_B9kHhvX');
