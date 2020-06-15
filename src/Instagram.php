@@ -549,9 +549,9 @@ class Instagram
     public function getOAuthToken($code, $token = false)
     {
         $apiData = array(
-            'grant_type' => 'authorization_code',
+//            'grant_type' => 'authorization_code',
             'client_id' => $this->getApiKey(),
-            'client_secret' => $this->getApiSecret(),
+//            'client_secret' => $this->getApiSecret(),
             'redirect_uri' => $this->getApiCallback(),
 //            'code' => $code
             'response_type' => 'token'
